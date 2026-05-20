@@ -102,3 +102,17 @@ int main() {
     
     printf("Cantidad de estudiantes a registrar: ");
     scanf("%d", &total_estudiantes);
+    
+     // Matriz de calificaciones
+    float calificaciones[total_estudiantes][total_asignaturas];
+
+    // Llamado ordenado a las funciones
+    cargarNotas(total_estudiantes, total_asignaturas, calificaciones);
+    promedioEstudiantes(total_estudiantes, total_asignaturas, calificaciones);
+    promedioMaterias(total_estudiantes, total_asignaturas, calificaciones);
+    notaAltaBajaEstudiante(total_estudiantes, total_asignaturas, calificaciones);
+    notaAltaBajaAsignatura(total_estudiantes, total_asignaturas, calificaciones);
+    revisarAprobados(total_estudiantes, total_asignaturas, calificaciones);
+
+    return 0;
+}
