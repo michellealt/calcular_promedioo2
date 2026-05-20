@@ -32,3 +32,15 @@ void promedioEstudiantes(int n_estudiantes, int n_materias, float calificaciones
         printf("Estudiante %d: %.2f\n", i + 1, suma / n_materias);
     }
 }
+
+// Calcular y mostrar el promedio por asignatura
+void promedioMaterias(int n_estudiantes, int n_materias, float calificaciones[][n_materias]) {
+    printf("\nPROMEDIO POR ASIGNATURA\n");
+    for (int j = 0; j < n_materias; j++) {
+        float suma = 0;
+        for (int i = 0; i < n_estudiantes; i++) {
+            suma += *(*(calificaciones + i) + j);
+        }
+        printf("Asignatura %d: %.2f\n", j + 1, suma / n_estudiantes);
+    }
+}
