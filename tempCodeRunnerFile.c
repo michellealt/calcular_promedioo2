@@ -1,0 +1,1 @@
+Determinar cuantos estudiantes aprobaron o reprobaron cada asignatura
