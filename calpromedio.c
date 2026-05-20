@@ -19,3 +19,16 @@ void cargarNotas(int n_estudiantes, int n_materias, float calificaciones[][n_mat
         }
     }
 }
+
+
+// Calcular y mostrar el promedio de calificaciones para cada estudiante
+void promedioEstudiantes(int n_estudiantes, int n_materias, float calificaciones[][n_materias]) {
+    printf("\nPROMEDIO POR ESTUDIANTE\n");
+    for (int i = 0; i < n_estudiantes; i++) {
+        float suma = 0;
+        for (int j = 0; j < n_materias; j++) {
+            suma += *(*(calificaciones + i) + j);
+        }
+        printf("Estudiante %d: %.2f\n", i + 1, suma / n_materias);
+    }
+}
