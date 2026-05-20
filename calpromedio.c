@@ -75,3 +75,30 @@ void notaAltaBajaAsignatura(int n_estudiantes, int n_materias, float calificacio
         printf("Asignatura %d -> Nota Mas Alta: %.2f | Nota Mas Baja: %.2f\n", j + 1, alta, baja);
     }
 }
+
+// Determinar cuantos estudiantes aprobaron o reprobaron cada asignatura
+void revisarAprobados(int n_estudiantes, int n_materias, float calificaciones[][n_materias]) {
+    printf("\nESTADO DE RENDIMIENTO POR ASIGNATURA\n");
+    for (int j = 0; j < n_materias; j++) {
+        int aprobados = 0;
+        int reprobados = 0;
+        
+        for (int i = 0; i < n_estudiantes; i++) {
+            if (((calificaciones + i) + j) >= 6.0) {
+                aprobados++;
+            } else {
+                reprobados++;
+            }
+        }
+        printf("Asignatura %d -> Aprobados: %d | Reprobados: %d\n", j + 1, aprobados, reprobados);
+    }
+}
+
+int main() {
+    int total_estudiantes;
+    int total_asignaturas = 3; 
+    
+    printf("SISTEMA DE GESTION DE CALIFICACIONES\n");
+    
+    printf("Cantidad de estudiantes a registrar: ");
+    scanf("%d", &total_estudiantes);
