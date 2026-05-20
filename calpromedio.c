@@ -21,7 +21,7 @@ void cargarNotas(int n_estudiantes, int n_materias, float calificaciones[][n_mat
 }
 
 
-// Calcular y mostrar el promedio de calificaciones para cada estudiante
+// Calcular y mostrar el promedio de calificaciones para cada estudiante 
 void promedioEstudiantes(int n_estudiantes, int n_materias, float calificaciones[][n_materias]) {
     printf("\nPROMEDIO POR ESTUDIANTE\n");
     for (int i = 0; i < n_estudiantes; i++) {
@@ -30,5 +30,33 @@ void promedioEstudiantes(int n_estudiantes, int n_materias, float calificaciones
             suma += *(*(calificaciones + i) + j);
         }
         printf("Estudiante %d: %.2f\n", i + 1, suma / n_materias);
+    }
+}
+
+// Calcular y mostrar el promedio por asignatura
+void promedioMaterias(int n_estudiantes, int n_materias, float calificaciones[][n_materias]) {
+    printf("\nPROMEDIO POR ASIGNATURA\n");
+    for (int j = 0; j < n_materias; j++) {
+        float suma = 0;
+        for (int i = 0; i < n_estudiantes; i++) {
+            suma += ((calificaciones + i) + j);
+        }
+        printf("Asignatura %d: %.2f\n", j + 1, suma / n_estudiantes);
+    }
+}
+
+// Encontrar la calificacion mas alta y baja por estudiante
+void notaAltaBajaEstudiante(int n_estudiantes, int n_materias, float calificaciones[][n_materias]) {
+    printf("\nNOTA ALTA Y BAJA POR ESTUDIANTE\n");
+    for (int i = 0; i < n_estudiantes; i++) {
+        float alta = ((calificaciones + i) + 0);
+        float baja = ((calificaciones + i) + 0);
+        
+        for (int j = 1; j < n_materias; j++) {
+            float actual = ((calificaciones + i) + j);
+            if (actual > alta) alta = actual;
+            if (actual < baja) baja = actual;
+        }
+        printf("Estudiante %d -> Nota Mas Alta: %.2f | Nota Mas Baja: %.2f\n", i + 1, alta, baja);
     }
 }
